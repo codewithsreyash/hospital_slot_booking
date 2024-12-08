@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book a Slot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Book a Slot</h1>
+    <form method="POST">
+        <label for="client_name">Your Name:</label>
+        <input type="text" name="client_name" required>
+        <br>
+        <label for="hospital">Select Hospital:</label>
+        <select name="hospital">
+            {% for hospital in hospitals %}
+            <option value="{{ hospital.name }}">{{ hospital.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="time_slot">Select Time Slot:</label>
+        <input type="text" name="time_slot" required>
+        <br>
+        <button type="submit">Book Slot</button>
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>
